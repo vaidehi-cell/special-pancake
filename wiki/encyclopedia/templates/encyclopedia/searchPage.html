@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+{% load markdown_extras %}
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+
+{% block body %}
+    <h3>All Matching Pages</h3>
+
+    <ul>
+        {% for page in pages %}
+            <a href = wiki/{{ page }} > <li>{{ page }}</li> </a>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
