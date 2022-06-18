@@ -1,1 +1,1 @@
-**Commerce : Auctions website like EBay in Django
+## Commerce : Auctions website like EBay in Django
