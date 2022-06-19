@@ -1,0 +1,26 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<h2>Items in your Watchlist</h2>
+{% if watchlist %}
+    <div class="listing_flex">
+        {% for listing in watchlist %}
+        <span class="listing">
+            <div class="boxes p-3 mb-9 bg-white rounded">
+                <div>
+                    {% if listing.item_image %}
+                        <img src="{{ listing.item_image.url }}" width="240">
+                    {% endif %}
+                </div>
+                <div> <a href="{% url 'listing' listing.list_id %}"> <h3>{{ listing.item }}</h3> </a> </div>
+                <div style="font-weight: 500;">Price: Rs. {{ listing.price }} </div>
+                <div style="color: gray">Created {{ listing.time_created }}</div> 
+                <a href="{% url 'remove_from_watchlist' listing.list_id %}">Remove from watchlist</a>
+            </div>
+        </span>
+        {% endfor %}
+    </div>
+{% else %}
+    Seems like you haven't added any item here yet...
+{% endif %}
+{% endblock %}

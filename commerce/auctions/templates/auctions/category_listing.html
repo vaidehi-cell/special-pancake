@@ -1,0 +1,24 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+    <h2> Listings under {{ category }} Category </h2>
+    {% if category_listings %}
+        <div class="listing_flex">
+        {% for listing in category_listings %}
+        <span class="listing">
+            <div class="boxes p-3 mb-9 bg-white rounded">
+                <div>
+                    {% if listing.item_image %}
+                        <img src="{{ listing.item_image.url }}" width="240">
+                    {% endif %}
+                </div>
+                <div> <a href="{% url 'listing' listing.list_id %}"> <h3>{{ listing.item }}</h3> </a> </div>
+                <div style="font-weight: 500;">Price: Rs. {{ listing.price }} </div>
+                <div style="color: gray">Created {{ listing.time_created }}</div> 
+            </div>
+        </span>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p>No listings yet :(</p>
+    {% endif %}
+{% endblock %}

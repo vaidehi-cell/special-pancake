@@ -1,0 +1,10 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+<h2>
+    {% if message %}
+        {{ message }}
+    {% else %}
+        Page does not exist!
+    {% endif %}
+</h2>
+{% endblock %}
